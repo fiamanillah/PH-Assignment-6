@@ -1,13 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
-  </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script src="./script.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="shortcut icon" href="./images/logo.svg" type="image/x-icon" />
+        <title>Peddy</title>
+
+        <link href="./output.css" rel="stylesheet" />
+    </head>
+
+    <body class="font-lato">
+        <header>
+            <div class="max-w-screen-xl mx-auto py-10 flex items-center justify-center sm-p:justify-between relative px-[2%]">
+                <div class="flex gap-3 items-center absolute sm-p:relative left-0">
+                    <img src="./images/logo.svg" alt="Peddy-Logo" />
+                    <h1>Peddy</h1>
+                </div>
+
+                <nav class="text-secondaryTextColor flex gap-4">
+                    <button class="font-bold duration-300 hover:text-primary active:text-primary10 active:scale-95 text-primary">
+                        Home
+                    </button>
+                    <button class="font-bold duration-300 hover:text-primary active:text-primary10 active:scale-95">
+                        Shop
+                    </button>
+                    <button class="font-bold duration-300 hover:text-primary active:text-primary10 active:scale-95">
+                        Contact
+                    </button>
+                </nav>
+
+                <button class="border p-3 rounded-full duration-300 hover:bg-slate-200 active:scale-95 active:bg-slate-300 absolute sm-p:relative right-0">
+                    <img src="./images/icons/avatar.svg" alt="" />
+                </button>
+            </div>
+        </header>
+
+        <section>
+            <div class="max-w-screen-xl mx-auto py-5 flex flex-col items-center justify-center px-[2%]">
+                <div class="text-center w-3/5 md-p:w-full flex flex-col justify-center items-center gap-5">
+                    <h2 class="text-secondaryTextColor font-bold">
+                        Bringing Families Together ❤️‍🔥
+                    </h2>
+                    <h1 class="text-6xl">Your Path to Adoption Starts Here</h1>
+                    <p>
+                        It is a long established fact that a reader will be distracted by
+                        the readable content of a page when looking at its layout. The point
+                        of using Lorem Ipsum is that it has a.
+                    </p>
+                    <button class="bg-primary py-3 px-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95">
+                        View More
+                    </button>
+                </div>
+
+                <img src="./images/pets.png" alt="" />
+            </div>
+        </section>
+
+        <section>
+            <div class="max-w-screen-xl mx-auto py-5 px-[2%] flex flex-col items-center justify-center">
+                <div class="text-center w-3/5 md-p:w-full flex flex-col justify-center items-center gap-5">
+                    <h1 class="">Adopt Your Best Friend</h1>
+                    <p>
+                        It is a long established fact that a reader will be distracted by
+                        the readable content of a page when looking at its layout. The point
+                        of using Lorem Ipsum is that it has a.
+                    </p>
+                </div>
+
+                <div class="flex gap-[5%] md-p:gap-[1%] w-full mt-10">
+                    <button class="btn btn-active">
+                        <img src="./images/logo.svg" alt="" />
+                        <span class="text-xl font-bold">Dogs</span>
+                    </button>
+                    <button class="btn">
+                        <img src="./images/logo.svg" alt="" />
+                        <span class="text-xl font-bold">Dogs</span>
+                    </button>
+                    <button class="btn">
+                        <img src="./images/logo.svg" alt="" />
+                        <span class="text-xl font-bold">Dogs</span>
+                    </button>
+                    <button class="btn">
+                        <img src="./images/logo.svg" alt="" />
+                        <span class="text-xl font-bold">Dogs</span>
+                    </button>
+                </div>
+
+                <div class="flex justify-between w-full items-center my-5">
+                    <h2>Best Deal For You</h2>
+                    <button class="bg-primary py-3 px-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95">Sort By Price</button>
+                </div>
+
+
+                <div class="flex gap-5 md-p:gap-[1%] w-full">
+                    <div class="grid grid-cols-3 lg-t:grid-cols-2 sm-p:grid-cols-1 place-content-start gap-3 sm-p:gap-0 basis-3/4" id="petCards">
+                        <!-- <div class="border-2 p-3 rounded-xl ">
+                            <img class="mb-3 rounded-2xl w-full" src="./images/1.png" alt="">
+                            <div>
+                                <div class="flex flex-col gap-1">
+                                    <h2 class="my-2">Mister Tartos</h2>
+                                    <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/breed.svg" alt=""> Breed: <span>Golder Retriver</span></div>
+                                    <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/calender.svg" alt=""> Birth: <span>2024</span></div>
+                                    <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/gender.svg" alt=""> Gender: <span>Male</span></div>
+                                    <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/price.svg" alt=""> Breed: <span>199 $</span></div>
+                                </div>
+                            </div>
+                            <hr class="my-5">
+                            <div class="flex justify-between w-full gap-3 ">
+                                <button class="py-3 border rounded-lg grow grid place-content-center hover:bg-slate-200 active:scale-95 active:bg-slate-300 duration-300"><img src="./images/icons/like.svg" alt=""></button>
+                                <button class="py-3 border rounded-lg grow grid place-content-center hover:bg-slate-200 active:scale-95 active:bg-slate-300 duration-300 text-primary font-bold">Adopt</button>
+                                <button class="py-3 border rounded-lg grow grid place-content-center hover:bg-slate-200 active:scale-95 active:bg-slate-300 duration-300 text-primary font-bold">Details</button>
+                            </div>
+                        </div> -->
+
+                        <img class="hidden" id="loader" src="./images/loader.gif" alt="">
+
+                        <div class="col-span-3 bg-gray-100 rounded-3xl flex flex-col text-center gap-5 py-20 justify-center items-center hidden">
+                            <img  src="./images/no-data.svg" alt="">
+                            <div class="w-3/4 md-p:w-full md-p:px-2 flex flex-col gap-3">
+                                <h1>No Information Available</h1>
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <div class="basis-1/4 border-2 p-3 rounded-xl grid gap-2 grid-cols-2 lg-t:grid-cols-1 place-content-start"  id="likedImage">
+                        <!-- <img class="w-full rounded-xl" src="./images/2.png" alt=""> -->
+                      
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="bg-[#131313] ">
+            <div class="max-w-screen-xl mx-auto py-5 flex md-p:flex-col md-p:gap-10 items-center justify-between md-p:items-start px-[2%]">
+                <div>
+                    <div class="flex gap-3 items-center mb-3">
+                        <img src="./images/logo.svg" alt="Peddy-Logo" />
+                        <h1 class="text-white">Peddy</h1>
+                    </div>
+                    <p class="text-gray-400 leading-loose">Location: av. Washington 165, NY CA <br> 54003
+                        <br>Phone: +31 85 964 47 25
+                        <br>Email: info@yourdomain.com
+                        <br>Openings hours: 9.00 AM - 5.00 PM</p>
+                </div>
+
+                <div >
+                    <h2 class="text-white">Usefull link</h2>
+                    <ul class="text-gray-400 leading-loose">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Animals</a></li>
+                        <li><a href="">Foundation</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <h2 class="text-white">Drop a Message</h2>
+                    <input class="bg-[#1f1f1f] outline-0 text-gray-400 p-3 rounded-xl" type="text" placeholder="Enter your email">
+                    <button class="bg-primary py-3 px-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-primary10 hover:text-white  active:scale-95">Subscribe</button>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <script src="./script.js"></script>
 </html>

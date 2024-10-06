@@ -19,13 +19,13 @@
 
     <body class="font-lato ">
         <header>
-            <div class="max-w-screen-xl mx-auto py-10 flex items-center justify-center sm-p:justify-between relative px-[2%]">
-                <div class="flex gap-3 items-center absolute sm-p:relative left-0">
+            <div class="max-w-screen-xl mx-auto py-10 flex items-center justify-center md-p:justify-between relative px-[2%]">
+                <div class="flex gap-3 items-center absolute md-p:relative left-0">
                     <img src="./images/logo.svg" alt="Peddy-Logo" />
                     <h1>Peddy</h1>
                 </div>
 
-                <nav class="text-secondaryTextColor flex gap-4">
+                <nav id="nav" class="text-secondaryTextColor flex gap-4 md-p:absolute md-p:flex-col md-p:bg-[#e8f2f3] md-p:p-8 md-p:rounded-xl md-p:top-[100px] md-p:right-[50px] md-p:z-10 md-p:duration-300 md-p:transform md-p:origin-top-right md-p:scale-0">
                     <button class="font-bold duration-300 hover:text-primary active:text-primary10 active:scale-95 text-primary">
                         Home
                     </button>
@@ -37,10 +37,20 @@
                     </button>
                 </nav>
 
-                
-                <button class="border p-3 rounded-full duration-300 hover:bg-slate-200 active:scale-95 active:bg-slate-300 absolute sm-p:relative right-0">
+                <div class="flex gap-2 absolute md-p:relative right-0">
+                    <button class="border p-3 rounded-full duration-300 hover:bg-slate-200 active:scale-95 active:bg-slate-300 ">
                     <img src="./images/icons/avatar.svg" alt="" />
-                </button>
+                    </button>
+
+                    <button id="menuBtn" class="border p-3 rounded-full duration-300 w-[50px] h-[50px] hover:bg-slate-200 active:scale-95 active:bg-slate-300 hidden md-p:block relative">
+                        <div id="iconContainer" class="flex gap-5 absolute top-1/2 -translate-y-1/2 transform duration-300">
+                          <img id="menuIcon" src="./images/icons/menu.svg" alt="Menu Icon" class="w-6 h-6 block">
+                          <img id="closeIcon" src="./images/icons/close.svg" alt="Close Icon" class="w-6 h-6 hidden">
+                        </div>
+                      </button>
+                      
+                </div>
+                
             </div>
         </header>
 
@@ -70,7 +80,7 @@
         </section>
 
         <section id="adopt">
-            <div class="max-w-screen-xl mx-auto py-5 px-[2%] flex flex-col items-center justify-center">
+            <div class="max-w-screen-xl mx-auto py-5 px-[2%] flex flex-col items-center justify-center ">
                 <div class="text-center w-3/5 md-p:w-full flex flex-col justify-center items-center gap-5">
                     <h1 class="">Adopt Your Best Friend</h1>
                     <p>
@@ -80,7 +90,7 @@
                     </p>
                 </div>
 
-                <div class="flex gap-[5%] md-p:gap-[1%] w-full mt-10" id="catagorySection">
+                <div class="flex gap-[5%] sm-p:grid sm-p:grid-cols-2 md-p:gap-[1%] sm-p:gap-2 w-full mt-10" id="catagorySection">
                     <!-- <button class="btn btn-active">
                         <img src="./images/logo.svg" alt="" />
                         <span class="text-xl font-bold">Dogs</span>
@@ -182,7 +192,15 @@
 
 
 
-
+<!-- <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 cursor-pointer z-10 "></div>
+<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center ">
+    <div class="bg-white rounded-lg p-10 relative flex flex-col gap-3 items-center">
+        <img class="w-32" src="./images/handshake.gif" alt="">
+        <span class="text-4xl font-bold">Congrats</span>
+        <span class="text-xl">Adoption process is start for your pet</span>
+        <span class="text-7xl font-bold">3</span>
+    </div>
+</div> -->
 <!-- <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 cursor-pointer z-10 "></div>
 
 <div id="modal" class="fixed inset-0 z-50 flex items-center justify-center">

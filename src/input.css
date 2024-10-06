@@ -13,7 +13,7 @@
     @apply text-secondaryTextColor;
   }
   .btn{
-    @apply py-6 px-8 sm-p:px-4 md-p:py-3 border-2 basis-1/4 flex justify-center items-center gap-3 rounded-2xl duration-300 hover:bg-slate-200 active:bg-slate-300 active:scale-95;
+    @apply py-6 px-8 sm-p:px-[1%] md-p:py-[2%] border-2 basis-1/4 flex justify-center items-center gap-3 rounded-2xl duration-300 hover:bg-slate-200 active:bg-slate-300 active:scale-95;
   }
   .btn-active{
     @apply rounded-full border-primary bg-primary10;

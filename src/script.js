@@ -3,6 +3,19 @@ const loader = document.getElementById("loader");
 const likedImage = document.getElementById("likedImage");
 const catagorySection = document.getElementById("catagorySection");
 const sortBtn = document.getElementById("sortBtn");
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.getElementById("nav");
+const menuIcon = document.getElementById('menuIcon');
+const closeIcon = document.getElementById('closeIcon');
+const iconContainer = document.getElementById('iconContainer');
+
+menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("md-p:scale-0");
+    iconContainer.classList.toggle('rotate-90');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+})
+
 
 let petData = [];
 
@@ -30,8 +43,6 @@ async function loadPetData(type) {
         return
     }
     renderPetCarda(petData)
-
-
 }
 
 function renderPetCarda(data) {
@@ -52,7 +63,7 @@ function renderPetCarda(data) {
             <hr class="my-5">
             <div class="flex justify-between w-full gap-3 ">
                 <button class=" likeButtons py-3 border rounded-lg grow grid place-content-center hover:bg-slate-200 active:scale-95 active:bg-slate-300 duration-300"><img src="./images/icons/like.svg" alt="" ></button>
-                <button class="py-3 border rounded-lg grow grid place-content-center hover:bg-slate-200 active:scale-95 active:bg-slate-300 duration-300 text-primary font-bold">Adopt</button>
+                <button class="adoptBtn py-3 border rounded-lg grow grid place-content-center hover:bg-slate-200 active:scale-95 active:bg-slate-300 duration-300 text-primary font-bold disabled:bg-slate-300 disabled:active:scale-100 disabled:text-slate-500 disabled:cursor-not-allowed">Adopt</button>
                 <button  class="detailsBtn py-3 border rounded-lg grow grid place-content-center hover:bg-slate-200 active:scale-95 active:bg-slate-300 duration-300 text-primary font-bold">Details</button>
             </div>`
         petCards.appendChild(petCard);
@@ -68,19 +79,15 @@ function renderPetCarda(data) {
         })
     })
 
-    const detailsBtn = document.querySelectorAll(".detailsBtn");
 
+
+
+    const detailsBtn = document.querySelectorAll(".detailsBtn");
     detailsBtn.forEach((btn, index) => {
         btn.addEventListener("click", (e) => {
             const detailsData = petData[index];
-            const body = document.querySelector("body");
-            body.classList.add("overflow-hidden");
 
-            const modalOverlay = document.createElement("div");
-            modalOverlay.className = "fixed inset-0 bg-black bg-opacity-50 cursor-pointer z-10";
-            const modal = document.createElement("div");
-            modal.className = "fixed inset-0 z-50 flex items-center justify-center";
-            modal.innerHTML = `  <div class="bg-white rounded-lg p-5 w-[35%] lg-t:w-[65%] md-p:w-[85%] relative">
+            const modalInfo = `<div class="bg-white rounded-lg p-5 w-[35%] lg-t:w-[65%] md-p:w-[85%] relative">
     <img class="rounded-2xl w-full" src="${detailsData.image}" alt="">
     <h2 class="text-xl font-bold my-4">${detailsData.pet_name}</h2>
     <div class="grid grid-cols-2 md-p:grid-cols-1 gap-3">
@@ -102,31 +109,80 @@ function renderPetCarda(data) {
     
     <button class="modalClose bg-primary py-3 px-5 w-full my-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95" >Cancel</button>
             </div>`
-            body.appendChild(modalOverlay);
-            body.appendChild(modal)
-            const modalClose = document.querySelectorAll(".modalClose");
-            modalClose.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    modalOverlay.classList.add("hidden");
-                    modal.classList.add("hidden");
-                    body.classList.remove("overflow-hidden");
-                })
-            })
+            const btnType = btn.innerText;
+            console.log(btnType)
+            showModal(modalInfo, btnType);
 
-            console.log(modalClose)
+
         })
 
+    })
+
+    const adoptBtn = document.querySelectorAll(".adoptBtn");
+    adoptBtn.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            let counter = 3;
+            const modalInfo = `<div class="bg-white rounded-lg p-10 relative flex flex-col gap-3 items-center">
+        <img class="w-32" src="./images/handshake.gif" alt="">
+        <span class="text-4xl font-bold">Congrats</span>
+        <span class="text-xl">Adoption process is start for your pet</span>
+        <span class="text-7xl font-bold counterSpan">${counter}</span>
+    </div>`
+            const btnType = btn.innerText;
+            console.log(btnType)
+            showModal(modalInfo, btnType, counter);
+            btn.setAttribute("disabled", "true");
+            btn.innerHTML= "Adopted"
+            
+        })
     })
 
 
 }
 
 
+function showModal(modalInfo, btnType, counter) {
+    const body = document.querySelector("body");
+    body.classList.add("overflow-hidden");
+    const modalOverlay = document.createElement("div");
+    modalOverlay.className = "fixed inset-0 bg-black bg-opacity-50 cursor-pointer z-10";
+    const modal = document.createElement("div");
+    modal.className = "fixed inset-0 z-50 flex items-center justify-center";
+    modal.innerHTML = modalInfo
+    body.appendChild(modalOverlay);
+    body.appendChild(modal)
+
+    if (btnType == "Details") {
+        const modalCloseBtn = document.querySelectorAll(".modalClose");
+        modalCloseBtn.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                modalOverlay.classList.add("hidden");
+                modal.classList.add("hidden");
+                body.classList.remove("overflow-hidden");
+            })
+        })
+    } else if (btnType == "Adopt") {
+        const countdownElement = modal.querySelector('span.counterSpan');
+        const countdown = setInterval(() => {
+            counter--; 
+            countdownElement.innerText = counter;
+            if (counter === 0) {
+                clearInterval(countdown);
+                modalOverlay.classList.add("hidden");
+                modal.classList.add("hidden");
+                body.classList.remove("overflow-hidden");
+            }
+        }, 1000);
+    }
+
+
+}
+
 
 
 sortBtn.addEventListener("click", () => {
     if (petData != 0) {
-        const sortedPetData = petData.sort((a, b) => a.price - b.price);
+        const sortedPetData = petData.sort((a, b) => b.price - a.price);
         console.log(sortedPetData)
         renderPetCarda(sortedPetData);
     }
@@ -148,12 +204,12 @@ async function loadCatagory() {
         const categoryBtn = document.createElement("button");
         categoryBtn.className = "btn";
         categoryBtn.id = element.id;
-        categoryBtn.innerHTML = `<img class="min-w-5" src="${element.category_icon}" alt="" /> <span class="text-xl font-bold">${element.category}</span>`
+        categoryBtn.innerHTML = `<img class="sm-p:w-[30%]" src="${element.category_icon}" alt="" /> <span class="text-xl font-bold">${element.category}</span>`
         catagorySection.appendChild(categoryBtn);
     })
 
     const catagoryBtn = document.querySelectorAll(".btn");
-    catagoryBtn.forEach((item, index) => {
+    catagoryBtn.forEach((item) => {
         item.addEventListener("click", (event) => {
             catagoryBtn.forEach((btn) => btn.classList.remove("btn-active"));
             item.classList.add("btn-active");

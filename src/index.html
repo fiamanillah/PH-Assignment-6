@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,7 +17,7 @@
         <link href="./output.css" rel="stylesheet" />
     </head>
 
-    <body class="font-lato">
+    <body class="font-lato ">
         <header>
             <div class="max-w-screen-xl mx-auto py-10 flex items-center justify-center sm-p:justify-between relative px-[2%]">
                 <div class="flex gap-3 items-center absolute sm-p:relative left-0">
@@ -37,6 +37,7 @@
                     </button>
                 </nav>
 
+                
                 <button class="border p-3 rounded-full duration-300 hover:bg-slate-200 active:scale-95 active:bg-slate-300 absolute sm-p:relative right-0">
                     <img src="./images/icons/avatar.svg" alt="" />
                 </button>
@@ -55,16 +56,20 @@
                         the readable content of a page when looking at its layout. The point
                         of using Lorem Ipsum is that it has a.
                     </p>
-                    <button class="bg-primary py-3 px-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95">
+
+                    <a href="#adopt">
+                        <button class="bg-primary py-3 px-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95">
                         View More
                     </button>
+                    </a>
+                    
                 </div>
 
                 <img src="./images/pets.png" alt="" />
             </div>
         </section>
 
-        <section>
+        <section id="adopt">
             <div class="max-w-screen-xl mx-auto py-5 px-[2%] flex flex-col items-center justify-center">
                 <div class="text-center w-3/5 md-p:w-full flex flex-col justify-center items-center gap-5">
                     <h1 class="">Adopt Your Best Friend</h1>
@@ -75,8 +80,8 @@
                     </p>
                 </div>
 
-                <div class="flex gap-[5%] md-p:gap-[1%] w-full mt-10">
-                    <button class="btn btn-active">
+                <div class="flex gap-[5%] md-p:gap-[1%] w-full mt-10" id="catagorySection">
+                    <!-- <button class="btn btn-active">
                         <img src="./images/logo.svg" alt="" />
                         <span class="text-xl font-bold">Dogs</span>
                     </button>
@@ -91,12 +96,12 @@
                     <button class="btn">
                         <img src="./images/logo.svg" alt="" />
                         <span class="text-xl font-bold">Dogs</span>
-                    </button>
+                    </button> -->
                 </div>
 
                 <div class="flex justify-between w-full items-center my-5">
                     <h2>Best Deal For You</h2>
-                    <button class="bg-primary py-3 px-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95">Sort By Price</button>
+                    <button class="bg-primary py-3 px-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95" id="sortBtn">Sort By Price</button>
                 </div>
 
 
@@ -121,16 +126,15 @@
                             </div>
                         </div> -->
 
-                        <img class="hidden" id="loader" src="./images/loader.gif" alt="">
+                        
 
-                        <div class="col-span-3 bg-gray-100 rounded-3xl flex flex-col text-center gap-5 py-20 justify-center items-center hidden">
+                        <!-- <div class="col-span-3 bg-gray-100 rounded-3xl flex-col text-center gap-5 py-20 justify-center items-center flex" id="noData">
                             <img  src="./images/no-data.svg" alt="">
                             <div class="w-3/4 md-p:w-full md-p:px-2 flex flex-col gap-3">
                                 <h1>No Information Available</h1>
                                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
                             </div>
-                            
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="basis-1/4 border-2 p-3 rounded-xl grid gap-2 grid-cols-2 lg-t:grid-cols-1 place-content-start"  id="likedImage">
@@ -174,6 +178,40 @@
                 </div>
             </div>
         </footer>
+
+
+
+
+
+<!-- <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 cursor-pointer z-10 "></div>
+
+<div id="modal" class="fixed inset-0 z-50 flex items-center justify-center">
+  <div class="bg-white rounded-lg p-5 w-[35%] lg-t:w-[65%] md-p:w-[85%] relative">
+    <img class="rounded-2xl w-full" src="https://i.ibb.co.com/p0w744T/pet-1.jpg" alt="">
+    <h2 class="text-xl font-bold my-4">Modal Title</h2>
+    <div class="grid grid-cols-2 md-p:grid-cols-1 gap-3">
+        <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/breed.svg" alt=""> Breed: <span>AAAA</span></div>
+        <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/calender.svg" alt=""> Birth: <span>AAAA</span>
+        </div>
+        <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/gender.svg" alt=""> Gender: <span>Male</span>
+        </div>
+        <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/price.svg" alt=""> Price: <span>SSS </span>
+        </div>
+        <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/gender.svg" alt=""> Vaccinated status: <span>Male</span>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h2>Details Information</h2>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+            The point of using is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
+    </div>
+    
+    <button class="bg-primary py-3 px-5 w-full my-5 font-medium rounded-xl text-white duration-300 border-2 border-primary hover:bg-slate-200 hover:text-black active:bg-slate-300 active:scale-95" >Cancel</button>
+  </div>
+</div> -->
+
+
     </body>
 
     <script src="./script.js"></script>

@@ -3,8 +3,8 @@
 Peddy is a pet adoption platform where users can browse pets available for adoption, view detailed information, and adopt their favorite pets. The platform offers a seamless user experience, including the ability to sort pets by price, view pet details in a modal, and even “like” pets. It's fully responsive across desktop, tablet, and mobile devices.
 
 ### Live Links
-- [Repo Link] -  (Add your live deployment link here)
-- [Live Link] - (Add your live deployment link here)
+[Repo Link] -  [PH-Assignment-6 (Github Link)](https://github.com/programming-hero-web-course2/b10a6-pet-adoption-fiamanillah)
+[Live Link] - [PH-Assignment-6 (Live Link)](https://fi.amanillah.com/projects/PH-Assignment-6/src/index.html)
 
 ## Key Features
 

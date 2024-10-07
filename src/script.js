@@ -22,6 +22,9 @@ menuBtn.addEventListener("click", () => {
 profileBtn.addEventListener("click", ()=>{
     nav.classList.add("md-p:scale-0");
     profile.classList.toggle("scale-0");
+    iconContainer.classList.remove('rotate-90');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
 })
 
 

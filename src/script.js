@@ -8,12 +8,20 @@ const nav = document.getElementById("nav");
 const menuIcon = document.getElementById('menuIcon');
 const closeIcon = document.getElementById('closeIcon');
 const iconContainer = document.getElementById('iconContainer');
+const profile = document.getElementById('profile');
+const profileBtn = document.getElementById('profileBtn');
 
 menuBtn.addEventListener("click", () => {
+    profile.classList.add("scale-0");
     nav.classList.toggle("md-p:scale-0");
     iconContainer.classList.toggle('rotate-90');
     menuIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
+})
+
+profileBtn.addEventListener("click", ()=>{
+    nav.classList.add("md-p:scale-0");
+    profile.classList.toggle("scale-0");
 })
 
 
@@ -57,7 +65,7 @@ function renderPetCarda(data) {
                     <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/breed.svg" alt=""> Breed: <span>${element.breed ? element.breed : "Not Available"}</span></div>
                     <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/calender.svg" alt=""> Birth: <span>${element.date_of_birth ? element.date_of_birth : "Not Mentioned"}</span></div>
                     <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/gender.svg" alt=""> Gender: <span>${element.gender ? element.gender : "Not Mentioned"}</span></div>
-                    <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/price.svg" alt=""> Breed: <span>${element.price ? element.price + " $" : "Will be Announce"} </span></div>
+                    <div class="text-secondaryTextColor flex gap-1"><img src="./images/icons/price.svg" alt=""> Price: <span>${element.price ? element.price + " $" : "Will be Announce"} </span></div>
                 </div>
             </div>
             <hr class="my-5">
@@ -183,7 +191,6 @@ function showModal(modalInfo, btnType, counter) {
 sortBtn.addEventListener("click", () => {
     if (petData != 0) {
         const sortedPetData = petData.sort((a, b) => b.price - a.price);
-        console.log(sortedPetData)
         renderPetCarda(sortedPetData);
     }
 
@@ -215,7 +222,6 @@ async function loadCatagory() {
             item.classList.add("btn-active");
             const targetCatagory = event.currentTarget.querySelector("span").innerText.toLowerCase();
             loadPetData(`category/${targetCatagory}`)
-
         })
     })
 
